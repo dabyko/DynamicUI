@@ -13,6 +13,9 @@ public class NoteDisplay : MonoBehaviour
     [SerializeField] TextMeshProUGUI noteContent;
     [SerializeField] RectTransform noteContentRoot;
 
+    [SerializeField] GameObject analogPrefab;
+    [SerializeField] Transform analogRoot;
+
 
     private void Start()
     {
@@ -28,14 +31,39 @@ public class NoteDisplay : MonoBehaviour
         }
     }
 
-
+ 
     public void OnNoteSelected(Note note)
     {
-        Debug.Log("Note to show: " + note.name);
+        SetNoteDescription(note);
+        SetAnalogsData(note);
+    } 
 
+    private void SetNoteDescription(Note note)
+    {
         var dimensions = noteContent.GetPreferredValues(note.description, noteContentRoot.rect.width, noteContentRoot.rect.height);
 
         noteContentRoot.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, dimensions.y);
         noteContent.text = note.description;
+    }
+
+    private void SetAnalogsData(Note note)
+    {
+        ClearAnalogsData();
+
+        foreach (var analog in note.analogs)
+        {
+            var analogView = Instantiate(analogPrefab, Vector3.zero, Quaternion.identity, analogRoot);
+            analogView.GetComponent<AnalogFormation>().Bind(analog.description);
+        }
+    }
+
+    private void ClearAnalogsData()
+    {
+        if(analogRoot.childCount > 0)
+
+        foreach (Transform analog in analogRoot)
+        {
+            GameObject.Destroy(analog.gameObject);
+        }
     }
 }

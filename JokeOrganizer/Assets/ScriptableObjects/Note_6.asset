@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: 'Be persistent '
   category: Smoking
-  description: 'If you do not believe in the existence of persistent people, then
-    you have never seen a smoker trying to light a broken lighter. '
+  description: If you do not believe in the existence of persistent people, then
+    you have never seen a smoker trying to light a broken lighter.
   analogs:
   - {fileID: 11400000, guid: 66a7cee8e02ccc143aa9f3883702caf4, type: 2}
   - {fileID: 11400000, guid: fcd20ceafdc23324982f40bc20dc2483, type: 2}

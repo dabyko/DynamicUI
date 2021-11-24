@@ -64,6 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AnalogDisplay.cs" />
+    <Compile Include="Assets\Scripts\AnalogFormation.cs" />
     <Compile Include="Assets\Scripts\Note.cs" />
     <Compile Include="Assets\Scripts\NoteDisplay.cs" />
     <Compile Include="Assets\Scripts\NoteSelector.cs" />
